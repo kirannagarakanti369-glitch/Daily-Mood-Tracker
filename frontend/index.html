@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mood Tracker</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        max-width: 500px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        margin-bottom: 30px;
+      }
+      label {
+        font-weight: bold;
+      }
+      select,
+      textarea {
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 16px;
+      }
+      textarea {
+        height: 100px;
+        resize: vertical;
+      }
+      button {
+        background-color: #4caf50;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+      button:hover {
+        background-color: #45a049;
+      }
+      .mood-entry {
+        background-color: #f9f9f9;
+        border-left: 4px solid #4caf50;
+        padding: 10px 15px;
+        margin-bottom: 10px;
+        border-radius: 0 4px 4px 0;
+      }
+      .mood-date {
+        color: #666;
+        font-size: 0.9em;
+      }
+      .mood-emoji {
+        font-size: 1.2em;
+        margin-right: 5px;
+      }
+      #moodHistory {
+        margin-top: 20px;
+      }
+      .delete-btn {
+        background-color: #f44336;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 3px;
+        cursor: pointer;
+        margin-left: 10px;
+        font-size: 0.8em;
+      }
+
+      .delete-btn:hover {
+        background-color: #d32f2f;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>How are you feeling?</h1>
+    <form id="moodForm">
+      <label for="mood">Select your mood:</label>
+      <select id="mood" name="mood" required>
+        <option value="">-- Choose a mood --</option>
+        <option value="happy">Happy 😊</option>
+        <option value="sad">Sad 😢</option>
+        <option value="excited">Excited 🤩</option>
+        <option value="angry">Angry 😠</option>
+        <option value="calm">Calm 😌</option>
+        <option value="tired">Tired 😴</option>
+        <option value="confused">Confused 😕</option>
+      </select>
+
+      <label for="note">Add a note (optional):</label>
+      <textarea
+        id="note"
+        name="note"
+        placeholder="What's making you feel this way?"
+      ></textarea>
+
+      <button type="submit">Submit</button>
+    </form>
+
+    <div id="moodHistory">
+      <h2>Your Mood History</h2>
+      <div id="moodEntries"></div>
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>
