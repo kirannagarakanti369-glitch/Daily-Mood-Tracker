@@ -1,71 +1,91 @@
-# 🌤️ Daily-Mood-Tracker
+# 🌤️ Daily Mood Tracker
+
 A simple full-stack web application that allows users to log their daily moods with optional notes, view past entries, and delete them.
 
-🛠️ Tech Stack
+## 🛠️ Tech Stack
 
-Frontend: HTML, CSS, JavaScript
+- **Frontend:** HTML, CSS, JavaScript
+- **Backend:** Node.js, Express.js  
+- **Database:** MongoDB (Mongoose ORM)
+- **API:** RESTful APIs for CRUD operations
 
-Backend: Node.js, Express.js
+## ⚙️ Installation & Setup
 
-Database: MongoDB (Mongoose ORM)
+### Prerequisites
+- Node.js installed on your system
+- MongoDB database (local or cloud)
 
-API: RESTful APIs for CRUD operations
+### Steps
 
-⚙️ Installation & Setup
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/kirannagarakanti369-glitch/Daily-Mood-Tracker.git
+   cd Daily-Mood-Tracker
+   ```
 
-Clone the repository
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-git clone https://github.com/your-username/mood-tracker.git
-cd mood-tracker
+3. **Set up environment variables**
+   - Create a `.env` file in the root directory
+   - Add the following variables:
+     ```
+     MONGO_URI=your_mongodb_connection_string
+     PORT=5000
+     ```
 
+4. **Run the backend server**
+   ```bash
+   node backend/server.js
+   ```
 
-Install dependencies
+5. **Open the frontend**
+   - Open `frontend/index.html` in your web browser
 
-npm install
+## 🚀 Usage Examples
 
+### ➕ Add Mood Entry
+- Select a mood from the dropdown (e.g., Happy, Sad, Excited)
+- Optionally add a short note
+- Click **Submit** → The mood is stored in MongoDB
 
-Set up environment variables
-Create a .env file in the root directory:
+### 📖 View Past Entries
+- All previous entries appear in the list section
+- Each entry shows mood, note, and date
 
-MONGO_URI=your_mongodb_connection_string
-PORT=5000
+### ❌ Delete an Entry
+- Click **Delete** button next to an entry → It will be removed from MongoDB
 
+## 🔄 Application Flow
 
-Run the backend server
+1. **Frontend Form** → Collects mood & note
+2. **Fetch API (POST)** → Sends data to Node.js backend
+3. **Express Server** → Saves mood entry to MongoDB
+4. **Fetch API (GET)** → Retrieves all entries and displays them
+5. **Fetch API (DELETE)** → Removes selected mood entry
 
-node backend/server.js
+## 📁 Project Structure
 
+```
+Daily-Mood-Tracker/
+├── backend/
+│   ├── server.js
+│   ├── models/
+│   └── routes/
+├── frontend/
+│   ├── index.html
+│   ├── styles.css
+│   └── script.js
+├── package.json
+└── README.md
+```
 
-Open frontend
-Open frontend/index.html in your browser.
+## 🔧 API Endpoints
 
-🚀 Usage Examples
-➕ Add Mood Entry
-
-Select a mood from the dropdown (e.g., Happy, Sad, Excited).
-
-Optionally add a short note.
-
-Click Submit → The mood is stored in MongoDB.
-
-📖 View Past Entries
-
-All previous entries appear in the list section.
-
-Each entry shows mood, note, and date.
-
-❌ Delete an Entry
-
-Click Delete button next to an entry → It will be removed from MongoDB.
-
-🔄 Basic Flow
-
-Frontend Form → Collects mood & note
-
-Fetch API (POST) → Sends data to Node.js backend
-
-Express Server → Saves mood entry to MongoDB
-
-Fetch API (GET) → Retrieves all entries and displays them
-
-Fetch API (DELETE) → Removes selected mood entry
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | `/api/moods` | Create a new mood entry |
+| GET | `/api/moods` | Retrieve all mood entries |
+| DELETE | `/api/moods/:id` | Delete a specific mood entry |
